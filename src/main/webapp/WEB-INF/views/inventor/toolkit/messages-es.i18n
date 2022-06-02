@@ -1,0 +1,37 @@
+# i18n-es.i18n
+#
+# Copyright (C) 2012-2022 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+inventor.toolkit.form.label.code = Código
+inventor.toolkit.form.label.title = Título
+inventor.toolkit.form.label.description = Descripción
+inventor.toolkit.form.label.assemblyNotes = Notas
+inventor.toolkit.form.label.link = Link
+inventor.toolkit.form.label.artifactToolkits = Artefactos
+inventor.toolkit.form.label.price = Precio total (Divisa por defecto del sistema)
+inventor.toolkit.form.label.isPublic = Estado de publicación
+
+inventor.toolkit.list.label.code = Código
+inventor.toolkit.list.label.title = Título
+inventor.toolkit.list.label.description = Descripción
+inventor.toolkit.list.label.assemblyNotes = Notas
+inventor.toolkit.list.label.link = Link
+inventor.toolkit.list.label.isPublic = Estado de publicación
+
+
+inventor.toolkit.form.button.artifact = Artefactos
+inventor.toolkit.form.button.create = Crear
+inventor.toolkit.form.button.update = Actualizar
+inventor.toolkit.form.button.delete = Eliminar
+inventor.toolkit.form.button.publish = Publicar
+
+inventor.toolkit.form.error.duplicated_code = Este elemento ya se encuentra en uso
+administrator.toolkit.form.error.spam = El texto supera el límite de spam 
+
+inventor.toolkit.form.label.price=Precio (En la moneda por defecto del sistema)

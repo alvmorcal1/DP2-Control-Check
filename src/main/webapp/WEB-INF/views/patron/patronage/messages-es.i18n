@@ -1,0 +1,45 @@
+# i18n-es.i18n
+#
+# Copyright (C) 2012-2022 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+patron.patronage.list.label.code = Código
+patron.patronage.list.label.start_date = Fecha Inicio
+patron.patronage.list.label.finish_date = Fecha Fin
+patron.patronage.list.label.legal_stuff = Cosas Legales
+patron.patronage.list.label.status = Estado
+
+patronage.form.label.code = Código
+patronage.form.label.legalStuff = Cosas legales
+patronage.form.label.budget = Presupuesto
+patronage.form.label.startDate = Fecha inicial
+patronage.form.label.finishDate = Fecha final
+patronage.form.label.link = Link
+patronage.form.label.inventor.company = Empresa del inventor
+patronage.form.label.inventor.statement = Declaración del inventor
+patronage.form.label.inventor.link = Link del inventor
+patron.patronage.form.button.patronageReport = Reportes de Patrocinio
+patron.patronage.form.label.status = Estado
+patron.patronage.form.label.isPublic = Es público
+
+patron.patronage.form.button.update = Actualizar
+patron.patronage.form.button.delete = Eliminar
+patron.patronage.form.button.publish = Publicar
+patron.patronage.form.button.create = Crear
+
+patron.patronage.form.error.duplicated = Ese código ya está en uso
+patron.patronage.form.error.negative = El presupuesto debe ser positivo
+patron.patronage.form.error.too-close = La fecha es demasiado cercana (por lo menos debe durar un mes a partir de la fecha de inicio)
+patron.patronage.form.error.status = Solo los inventores pueden aceptar/denegar patrocinios (Por favor elige PROPOSED)
+patron.patronage.form.label.inventor.username = Selector de inventor
+patron.patronage.form.error.invalidInventor = Usuario del inventor no válido
+patron.patronage.form.error.too-close-start = Fecha de inicio inválida (debe ser al menos un mes después de hoy)
+patron.patronage.form.error.noAcceptedCurrency = Moneda no aceptada
+patron.patronage.form.label.budgetExchange = Presupuesto (en la divisa del sistema)
+patron.patronage.form.label.budgetExchangeDate = Fecha de intercambio del presupuesto
+patron.patronage.form.label.inventor = Inventor

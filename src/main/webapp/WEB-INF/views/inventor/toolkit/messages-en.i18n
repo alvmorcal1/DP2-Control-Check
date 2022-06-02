@@ -1,0 +1,37 @@
+# i18n-en.i18n
+#
+# Copyright (C) 2012-2022 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+inventor.toolkit.form.label.code = Code
+inventor.toolkit.form.label.title = Title
+inventor.toolkit.form.label.description = Description
+inventor.toolkit.form.label.assemblyNotes = Notes
+inventor.toolkit.form.label.link = Link
+inventor.toolkit.form.label.artifactToolkits = Artifacts
+inventor.toolkit.form.label.isPublic = Status of published
+inventor.toolkit.form.label.price = Price (System Default Currency)
+
+inventor.toolkit.list.label.code = Code
+inventor.toolkit.list.label.title = Title
+inventor.toolkit.list.label.description = Description
+inventor.toolkit.list.label.assemblyNotes = Notes
+inventor.toolkit.list.label.link = Link
+inventor.toolkit.list.label.isPublic = Public Condition
+
+
+inventor.toolkit.form.button.artifact = Artifacts
+inventor.toolkit.form.button.create = Create
+inventor.toolkit.form.button.update = Update
+inventor.toolkit.form.button.delete = Delete
+inventor.toolkit.form.button.publish = Publish
+
+inventor.toolkit.form.error.duplicated_code = This element is already in use
+administrator.toolkit.form.error.spam = Text surpasses the spam threshold
+
+inventor.toolkit.form.label.price=Price (System Default Currency)

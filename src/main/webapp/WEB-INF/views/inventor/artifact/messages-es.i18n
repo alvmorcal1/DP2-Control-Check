@@ -1,0 +1,40 @@
+# i18n-en.i18n
+#
+# Copyright (C) 2012-2022 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+inventor.artifact.list.label.artifact_type = Tipo de Artefacto
+inventor.artifact.list.label.name = Nombre
+inventor.artifact.list.label.code = Código
+inventor.artifact.list.label.technology = Tecnología
+inventor.artifact.list.label.description = Descripción
+inventor.artifact.list.label.retail_price.amount = Precio
+inventor.artifact.list.label.retail_price.currency = Divisa
+inventor.artifact.list.label.link = Enlace
+inventor.artifact.list.button.create = Crear
+
+inventor.artifact.form.label.artifact_type = Tipo de Artefacto
+inventor.artifact.form.label.name = Nombre
+inventor.artifact.form.label.code = Código
+inventor.artifact.form.label.technology = Tecnología
+inventor.artifact.form.label.description = Descripción
+inventor.artifact.form.label.retail_price = Precio
+inventor.artifact.form.label.link = Enlace
+inventor.artifact.form.label.inventor.username = Inventor
+inventor.artifact.form.button.create = Crear
+inventor.artifact.form.button.update = Actualizar
+inventor.artifact.form.button.delete = Borrar
+inventor.artifact.form.button.publish = Publicar
+
+inventor.artifact.form.error.duplicated_code = Otro artefacto tiene este código
+inventor.artifact.form.error.negative = El precio no puede ser negativo
+inventor.artifact.form.error.noAcceptedCurrency = Esta moneda no esta aceptada
+inventor.artifact.form.label.retail_priceExchangeDate = Fecha de intercambio del precio 
+inventor.artifact.form.label.retail_priceExchange = Precio (en la divisa del sistema)
+
+inventor.artifact.form.error.spam = El texto supera el límite de spam
