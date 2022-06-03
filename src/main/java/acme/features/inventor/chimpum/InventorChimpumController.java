@@ -15,8 +15,12 @@ public class InventorChimpumController extends AbstractController<Inventor, Chim
 	@Autowired
 	protected InventorChimpumListService listService;
 	
+	@Autowired
+	protected InventorChimpumShowService showService;
+	
 	@PostConstruct
 	protected void initialise() {
 		super.addCommand("list", this.listService);
+		super.addCommand("show", this.showService);
 	}
 }
