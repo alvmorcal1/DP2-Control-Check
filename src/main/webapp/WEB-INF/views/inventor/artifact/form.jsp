@@ -28,7 +28,7 @@
 	<acme:input-money code="inventor.artifact.form.label.retail_price" path="retailPrice"/>
 
 	<acme:input-textbox code="inventor.artifact.form.label.link" path="link"/>	
-	<jstl:choose>
+	<jstl:choose>		
 		<jstl:when test="${command == 'show' && isPublic}">
 				<acme:input-textbox code="inventor.artifact.form.label.inventor.username" path="inventor.userAccount.username" readonly="true"/>
 				<acme:input-money code="inventor.artifact.form.label.retail_priceExchange" path="budgetExchange" readonly="true"/>
@@ -46,4 +46,9 @@
 				<acme:submit code="inventor.artifact.form.button.create" action="/inventor/artifact/create"/>
 		</jstl:when>
 	</jstl:choose>
+	
+	<jstl:if test="${artifactType == 'TOOL'}">
+		<acme:button code="inventor.artifact.list.button.chimpum" action="/inventor/chimpum/list?masterId=${id}"/>
+	</jstl:if>
+	
 </acme:form>
