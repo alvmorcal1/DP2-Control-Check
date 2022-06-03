@@ -22,3 +22,6 @@ inventor.chimpum.form.error.start_date = Invalid Start Date (at least one month 
 inventor.chimpum.form.error.no_accepted_currency = Not Accepted Currency
 inventor.artifact.form.error.negative = Negative Amount is not Valid
 inventor.chimpum.form.error.finishDate = Invalid Finish Date (one week long after Start Date)
+
+inventor.chimpum.form.button.update = Update
+inventor.chimpum.form.button.delete = Delete

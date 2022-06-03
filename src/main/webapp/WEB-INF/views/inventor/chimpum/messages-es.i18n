@@ -22,3 +22,6 @@ inventor.chimpum.form.error.start_date = Fecha de Inicio Inválida (Al menos un 
 inventor.chimpum.form.error.no_accepted_currency = Divisa no aceptada
 inventor.artifact.form.error.negative = Una cantidad negativa no es válida
 inventor.chimpum.form.error.finishDate = Fecha de Fin Inválida (una semana después de Fecha de Inicio)
+
+inventor.chimpum.form.button.update = Actualizar
+inventor.chimpum.form.button.delete = Eliminar

@@ -5,7 +5,7 @@
 
 <acme:form>
 	<acme:input-textbox code="inventor.chimpum.form.label.code" path="code"/>
-	<jstl:if test="${command == 'show'}">
+	<jstl:if test="${acme:anyOf(command, 'show, update, delete')}">
 		<acme:input-moment code="inventor.chimpum.form.label.creationMoment" path="creationMoment" readonly="true"/>
 	</jstl:if>
 	<acme:input-textbox code="inventor.chimpum.form.label.title" path="title"/>
@@ -16,6 +16,10 @@
 	<acme:input-textbox code="inventor.chimpum.form.label.link" path="link"/>
 	
 	<jstl:choose>
+		<jstl:when test="${acme:anyOf(command, 'show, update, delete')}">
+			<acme:submit code="inventor.chimpum.form.button.update" action="/inventor/chimpum/update"/>
+			<acme:submit code="inventor.chimpum.form.button.delete" action="/inventor/chimpum/delete"/>
+		</jstl:when>
 		<jstl:when test="${command == 'create'}">
 			<acme:submit code="inventor.chimpum.form.button.create" action="/inventor/chimpum/create?masterId=${masterId}"/>
 		</jstl:when>
