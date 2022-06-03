@@ -28,12 +28,10 @@ public class InventorChimpumUpdateService implements AbstractUpdateService<Inven
 		boolean result;
 		int id;
 		Chimpum chimpum;
-		Inventor inventor;
 		
 		id = request.getModel().getInteger("id");
 		chimpum = this.repository.findChimpumById(id);
-		inventor = chimpum.getArtifact().getInventor();
-		result = request.isPrincipal(inventor) && chimpum!=null;
+		result = chimpum!=null && request.isPrincipal(chimpum.getArtifact().getInventor()) ;
 		
 		return result;
 	}
