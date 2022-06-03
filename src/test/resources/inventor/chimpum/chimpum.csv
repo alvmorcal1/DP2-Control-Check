@@ -1,0 +1,4 @@
+record-index,code,creation-moment,title,description,start-date,finish-date,budget,link
+0,AAA-22/06/02,2022/06/02 15:30,First Chimpum,This is a temporal Chimpum,2022/07/02 15:31,2022/07/09 15:31,EUR 10.00,https://www.google.es
+1,BBB-22/06/02,2022/06/02 15:30,Second Chimpum,This is a temporal Chimpum,2022/07/02 15:31,2022/07/09 15:31,USD 10.00,https://www.google.es
+2,CCC-22/06/02,2022/06/02 15:30,Thirth Chimpum,This is a temporal Chimpum,2022/07/02 15:31,2022/07/09 15:31,GBP 10.00,https://www.google.es
