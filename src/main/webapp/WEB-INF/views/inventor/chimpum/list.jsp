@@ -10,3 +10,5 @@
 	<acme:list-column code="inventor.chimpum.list.label.description" path="description" width="20%"/>
 	<acme:list-column code="inventor.chimpum.list.label.budget" path="budget" width="20%"/>
 </acme:list>
+
+<acme:button code="inventor.chimpum.list.button.create" action="/inventor/chimpum/create?masterId=${masterId}"/>

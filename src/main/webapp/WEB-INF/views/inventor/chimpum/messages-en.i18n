@@ -12,3 +12,13 @@ inventor.chimpum.form.label.startDate = Start Date
 inventor.chimpum.form.label.finishDate = Finish Date
 inventor.chimpum.form.label.budget = Budget
 inventor.chimpum.form.label.link = Link
+
+inventor.chimpum.form.button.create = Create
+inventor.chimpum.list.button.create = Create
+
+inventor.chimpum.form.error.duplicated_code = Duplicated Code
+inventor.chimpum.form.error.invalid_date = Invalid Date Code
+inventor.chimpum.form.error.start_date = Invalid Start Date (at least one month ahead)
+inventor.chimpum.form.error.no_accepted_currency = Not Accepted Currency
+inventor.artifact.form.error.negative = Negative Amount is not Valid
+inventor.chimpum.form.error.finishDate = Invalid Finish Date (one week long after Start Date)
