@@ -44,7 +44,7 @@ master.menu.inventor.toolkit.list = Toolkits del inventor
 
 master.menu.administrator.createAnnouncement = Crear Nuevo Anuncio
 master.menu.administrator = Administrador
-master.menu.administrator.dashboard = Panel de Administración
+master.menu.administrator.dashboard = Panel de Administración del Sistema
 master.menu.administrator.user-accounts = Cuentas de usuario
 master.menu.administrator.populate-initial = Poblar BD (inicial)
 master.menu.administrator.populate-sample = Poblar BD (ejemplos)

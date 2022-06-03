@@ -31,3 +31,11 @@ administrator.dashboard.form.label.averageBudgetOfPatronages = Average Budget Of
 administrator.dashboard.form.label.deviationBudgetOfPatronages = Deviation Budget Of Patronages
 administrator.dashboard.form.label.maximumBudgetOfPatronages = Maximum Budget Of Patronages
 administrator.dashboard.form.label.minimumBudgetOfPatronages = Minimum Budget Of Patronages
+
+#CONTROL CHECK
+
+administrator.dashboard.form.label.ratioOfChimpum = Ratio Of Chimpum
+administrator.dashboard.form.label.averageBudgetOfChimpum = Average Budget Of Chimpum
+administrator.dashboard.form.label.deviationBudgetOfChimpum = Deviation Budget Of Chimpum
+administrator.dashboard.form.label.minimumBudgetOfChimpum = Minimum Budget Of Chimpum
+administrator.dashboard.form.label.maximumBudgetOfChimpum = Maximum Budget Of Chimpum

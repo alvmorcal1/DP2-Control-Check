@@ -7,6 +7,128 @@
 	<acme:message code="administrator.dashboard.form.title"/>
 </h2>
 
+<%--CONTROL CHECK--%>
+
+<h3>
+	<acme:message code="administrator.dashboard.form.label.ratioOfChimpum"/>
+	<acme:print value="${ratioOfChimpum}"/>
+</h3>
+
+<table class="table table-sm">
+	<caption>
+	</caption>
+	<tr>
+		<th scope="row">
+			<h4>
+				<acme:message code="administrator.dashboard.form.label.averageBudgetOfChimpum"/>
+			</h4>
+			<table class="table table-sm" id="id-averageBudgetOfChimpum">
+				<caption>
+					<acme:message code="administrator.dashboard.form.label.averageBudgetOfChimpum"/>
+				</caption>
+				<jstl:forEach items="${currencyChimpum}" var="currencyChimpum">
+					<tr>
+						<th scope="row"><acme:print value="${currencyChimpum}"/></th>
+						<jstl:set value="${averageBudgetOfChimpum.entrySet().stream().filter(x->x.getKey().equals(currencyChimpum)).iterator()}" var="entrySet"/>
+						<jstl:if test="${entrySet.hasNext()}">
+							<jstl:forEach items="${entrySet}" var="entry">
+								<th scope="row"><acme:print value="${entry.getValue()}" /></th>
+							</jstl:forEach>
+						</jstl:if>
+					</tr>
+				</jstl:forEach>
+			</table>
+		</th>
+	</tr>
+</table>
+
+<table class="table table-sm">
+	<caption>
+	</caption>
+	<tr>
+		<th scope="row">
+			<h4>
+				<acme:message code="administrator.dashboard.form.label.deviationBudgetOfChimpum"/>
+			</h4>
+			<table class="table table-sm" id="id-deviationBudgetOfChimpum">
+				<caption>
+					<acme:message code="administrator.dashboard.form.label.deviationBudgetOfChimpum"/>
+				</caption>
+				<jstl:forEach items="${currencyChimpum}" var="currencyChimpum">
+					<tr>
+						<th scope="row"><acme:print value="${currencyChimpum}"/></th>
+						<jstl:set value="${deviationBudgetOfChimpum.entrySet().stream().filter(x->x.getKey().equals(currencyChimpum)).iterator()}" var="entrySet"/>
+						<jstl:if test="${entrySet.hasNext()}">
+							<jstl:forEach items="${entrySet}" var="entry">
+								<th scope="row"><acme:print value="${entry.getValue()}"/></th>
+							</jstl:forEach>
+						</jstl:if>
+					</tr>
+				</jstl:forEach>
+			</table>
+		</th>
+	</tr>
+</table>
+
+<table class="table table-sm">
+	<caption>
+	</caption>
+	<tr>
+		<th scope="row">
+			<h4>
+				<acme:message code="administrator.dashboard.form.label.minimumBudgetOfChimpum"/>
+			</h4>
+			<table class="table table-sm" id="id-minimumBudgetOfChimpum">
+				<caption>
+					<acme:message
+						code="administrator.dashboard.form.label.minimumBudgetOfChimpum"/>
+				</caption>
+				<jstl:forEach items="${currencyChimpum}" var="currencyChimpum">
+					<tr>
+						<th scope="row"><acme:print value="${currencyChimpum}"/></th>
+						<jstl:set value="${minimumBudgetOfChimpum.entrySet().stream().filter(x->x.getKey().equals(currencyChimpum)).iterator()}" var="entrySet"/>
+						<jstl:if test="${entrySet.hasNext()}">
+							<jstl:forEach items="${entrySet}" var="entry">
+								<th scope="row"><acme:print value="${entry.getValue()}"/></th>
+							</jstl:forEach>
+						</jstl:if>
+					</tr>
+				</jstl:forEach>
+			</table>
+		</th>
+	</tr>
+</table>
+
+<table class="table table-sm">
+	<caption>
+	</caption>
+	<tr>
+		<th scope="row">
+			<h4>
+				<acme:message code="administrator.dashboard.form.label.maximumBudgetOfChimpum"/>
+			</h4>
+			<table class="table table-sm" id="id-maximumBudgetOfChimpum">
+				<caption>
+					<acme:message code="administrator.dashboard.form.label.maximumBudgetOfChimpum"/>
+				</caption>
+				<jstl:forEach items="${currencyChimpum}" var="currencyChimpum">
+					<tr>
+						<th scope="row"><acme:print value="${currencyChimpum}"/></th>
+						<jstl:set value="${maximumBudgetOfChimpum.entrySet().stream().filter(x->x.getKey().equals(currencyChimpum)).iterator()}" var="entrySet"/>
+						<jstl:if test="${entrySet.hasNext()}">
+							<jstl:forEach items="${entrySet}" var="entry">
+								<th scope="row"><acme:print value="${entry.getValue()}"/></th>
+							</jstl:forEach>
+						</jstl:if>
+					</tr>
+				</jstl:forEach>
+			</table>
+		</th>
+	</tr>
+</table>
+
+<%-- CONTROL CHECK --%>
+
 <h3>
 	<acme:message code="administrator.dashboard.form.label.totalNumberOfComponents"/>
 	<acme:print value="${totalNumberOfComponents}"/>
