@@ -75,7 +75,7 @@ public class InventorChimpumCreateTest extends TestHarness{
 	@ParameterizedTest
 	@CsvFileSource(resources = "/inventor/chimpum/create-negative.csv", encoding = "utf-8", numLinesToSkip = 1)
 	@Order(20)
-	public void negativeTest(final int recordIndex, final String code, final String creationMoment, final String title,
+	public void negativeTest(final int recordIndex, final String code, final String title,
 		final String description, final String startDate, final String finishDate, final String budget, 
 		final String link) {
 		
