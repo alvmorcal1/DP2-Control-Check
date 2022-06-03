@@ -1,4 +1,4 @@
-package acme.features.inventor.chimpum;
+package acme.features.inventor.diskol;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -22,10 +22,10 @@ import acme.framework.services.AbstractCreateService;
 import acme.roles.Inventor;
 
 @Service
-public class InventorChimpumCreateService implements AbstractCreateService<Inventor, Diskol>{
+public class InventorDiskolCreateService implements AbstractCreateService<Inventor, Diskol>{
 
 	@Autowired
-	protected InventorChimpumRepository repository;
+	protected InventorDiskolRepository repository;
 	
 	@Autowired
 	protected InventorArtifactRepository artifactRepository;
@@ -38,20 +38,20 @@ public class InventorChimpumCreateService implements AbstractCreateService<Inven
 		final Artifact artifact = this.artifactRepository.findArtifactById(masterId);
 		result = (artifact!=null &&
 			request.isPrincipal(artifact.getInventor()) &&
-			artifact.getArtifactType().equals(ArtifactType.TOOL));
+			artifact.getArtifactType().equals(ArtifactType.COMPONENT));
 		
 		return result;
 	}
 
 	@Override
 	public void bind(final Request<Diskol> request, final Diskol entity, final Errors errors) {
-		request.bind(entity, errors, "code","title","description","startDate","finishDate","budget","link");
+		request.bind(entity, errors, "code","theme","summary","startDate","finishDate","quota","additionalInfo");
 		
 	}
 
 	@Override
 	public void unbind(final Request<Diskol> request, final Diskol entity, final Model model) {
-		request.unbind(entity, model, "code","title","description","startDate","finishDate","budget","link");
+		request.unbind(entity, model, "code","theme","summary","startDate","finishDate","quota","additionalInfo");
 		model.setAttribute("masterId", request.getModel().getAttribute("masterId"));
 	}
 
@@ -70,16 +70,19 @@ public class InventorChimpumCreateService implements AbstractCreateService<Inven
 	public void validate(final Request<Diskol> request, final Diskol entity, final Errors errors) {
 		if(!errors.hasErrors("code")) {
 			
-			final Diskol diskol = this.repository.findChimpumByCode(entity.getCode());
-			errors.state(request, diskol==null || diskol.getId() == entity.getId(), "code", "inventor.chimpum.form.error.duplicated_code");
+			final Diskol diskol = this.repository.findDiskolByCode(entity.getCode());
+			errors.state(request, diskol==null || diskol.getId() == entity.getId(), "code", "inventor.diskol.form.error.duplicated_code");
 			final String code = entity.getCode();
 			
 			final LocalDate dateObj = LocalDate.now();
-	        final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yy/MM/dd");
+	        final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yy:MMdd");
 			final String comparator = dateObj.format(formatter);
-			final String date = code.split("-")[1];
 			
-			errors.state(request, date.equals(comparator),"code", "inventor.chimpum.form.error.invalid_date");
+			final String first = code.split(":")[1];
+			final String second = code.split(":")[2];
+			final String date = first+":"+second;
+			
+			errors.state(request, date.equals(comparator),"code", "inventor.diskol.form.error.invalid_date");
 		}
 		
 		if(!errors.hasErrors("startDate")) {
@@ -88,10 +91,10 @@ public class InventorChimpumCreateService implements AbstractCreateService<Inven
 			calendar = new GregorianCalendar();
 			calendar.add(Calendar.MONTH, 1);
 			minimunDate = calendar.getTime();
-			errors.state(request, entity.getStartDate().after(minimunDate), "startDate", "inventor.chimpum.form.error.start_date");
+			errors.state(request, entity.getStartDate().after(minimunDate), "startDate", "inventor.diskol.form.error.start_date");
 		}
 		
-		if(!errors.hasErrors("budget")) {
+		if(!errors.hasErrors("quota")) {
 			final String entityCurrency;
 			final Double amount;
 			final String[] acceptedCurrencies;
@@ -99,11 +102,11 @@ public class InventorChimpumCreateService implements AbstractCreateService<Inven
 			
 			entityCurrency = entity.getQuota().getCurrency();
 			amount = entity.getQuota().getAmount();
-			errors.state(request, amount > 0, "budget", "inventor.artifact.form.error.negative");
+			errors.state(request, amount > 0, "quota", "inventor.artifact.form.error.negative");
 			acceptedCurrencies=this.repository.findAllAcceptedCurrencies().split(",");
 			
 			currencies = Arrays.asList(acceptedCurrencies);
-			errors.state(request, currencies.contains(entityCurrency) , "budget", "inventor.chimpum.form.error.no_accepted_currency");
+			errors.state(request, currencies.contains(entityCurrency) , "quota", "inventor.diskol.form.error.no_accepted_currency");
 		}
 		
 		if(!errors.hasErrors("finishDate")) {
@@ -116,7 +119,7 @@ public class InventorChimpumCreateService implements AbstractCreateService<Inven
 			calendar.add(Calendar.WEEK_OF_YEAR, 1);
 			minimunDate = calendar.getTime();
 			
-			errors.state(request, entity.getFinishDate().equals(minimunDate), "finishDate", "inventor.chimpum.form.error.finishDate");
+			errors.state(request, entity.getFinishDate().equals(minimunDate), "finishDate", "inventor.diskol.form.error.finishDate");
 		}
 		
 	}

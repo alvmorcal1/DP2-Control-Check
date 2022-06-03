@@ -1,0 +1,27 @@
+inventor.diskol.list.label.code = Código
+inventor.diskol.list.label.creationMoment = Fecha de Creación
+inventor.diskol.list.label.theme = Tema
+inventor.diskol.list.label.summary = Resumen
+inventor.diskol.list.label.quote = Cuota
+
+inventor.diskol.form.label.code = Código
+inventor.diskol.form.label.creationMoment = Fecha de Creación
+inventor.diskol.form.label.theme = Tema
+inventor.diskol.form.label.summary = Resumen
+inventor.diskol.form.label.startDate = Fecha de Inicio
+inventor.diskol.form.label.finishDate = Fecha de Fin
+inventor.diskol.form.label.quota = Cuota
+inventor.diskol.form.label.additionalInfo = Información Adicional
+
+inventor.diskol.form.button.create = Crear
+inventor.diskol.list.button.create = Crear
+
+inventor.diskol.form.error.duplicated_code = Código Duplicado
+inventor.diskol.form.error.invalid_date = Fecha del Código Inválida
+inventor.diskol.form.error.start_date = Fecha de Inicio Inválida (Al menos un mes tras la de creación)
+inventor.diskol.form.error.no_accepted_currency = Divisa no aceptada
+inventor.artifact.form.error.negative = Una cantidad negativa no es válida
+inventor.diskol.form.error.finishDate = Fecha de Fin Inválida (una semana después de Fecha de Inicio)
+
+inventor.diskol.form.button.update = Actualizar
+inventor.diskol.form.button.delete = Eliminar

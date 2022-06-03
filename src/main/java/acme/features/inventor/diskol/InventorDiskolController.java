@@ -1,4 +1,4 @@
-package acme.features.inventor.chimpum;
+package acme.features.inventor.diskol;
 
 import javax.annotation.PostConstruct;
 
@@ -10,22 +10,22 @@ import acme.framework.controllers.AbstractController;
 import acme.roles.Inventor;
 
 @Controller
-public class InventorChimpumController extends AbstractController<Inventor, Diskol>{
+public class InventorDiskolController extends AbstractController<Inventor, Diskol>{
 
 	@Autowired
-	protected InventorChimpumListService listService;
+	protected InventorDiskolListService listService;
 	
 	@Autowired
-	protected InventorChimpumShowService showService;
+	protected InventorDiskolShowService showService;
 	
 	@Autowired
-	protected InventorChimpumCreateService createService;
+	protected InventorDiskolCreateService createService;
 	
 	@Autowired
-	protected InventorChimpumUpdateService updateService;
+	protected InventorDiskolUpdateService updateService;
 	
 	@Autowired
-	protected InventorChimpumDeleteService deleteService;
+	protected InventorDiskolDeleteService deleteService;
 	
 	@PostConstruct
 	protected void initialise() {

@@ -1,4 +1,4 @@
-package acme.features.inventor.chimpum;
+package acme.features.inventor.diskol;
 
 import java.util.Collection;
 
@@ -16,10 +16,10 @@ import acme.framework.services.AbstractListService;
 import acme.roles.Inventor;
 
 @Service
-public class InventorChimpumListService implements AbstractListService<Inventor, Diskol>{
+public class InventorDiskolListService implements AbstractListService<Inventor, Diskol>{
 
 	@Autowired
-	protected InventorChimpumRepository repository;
+	protected InventorDiskolRepository repository;
 	
 	@Autowired
 	protected InventorArtifactRepository artifactRepository;
@@ -33,7 +33,7 @@ public class InventorChimpumListService implements AbstractListService<Inventor,
 		final Artifact artifact = this.artifactRepository.findArtifactById(masterId);
 		result = (artifact!=null &&
 			request.isPrincipal(artifact.getInventor()) &&
-			artifact.getArtifactType().equals(ArtifactType.TOOL));
+			artifact.getArtifactType().equals(ArtifactType.COMPONENT));
 		
 		return result;
 	}
@@ -41,12 +41,12 @@ public class InventorChimpumListService implements AbstractListService<Inventor,
 	@Override
 	public Collection<Diskol> findMany(final Request<Diskol> request) {
 		final int masterId = request.getModel().getInteger("masterId");
-		return this.repository.findAllChimpumByArtifactId(masterId);
+		return this.repository.findAllDiskolByArtifactId(masterId);
 	}
 
 	@Override
 	public void unbind(final Request<Diskol> request, final Diskol entity, final Model model) {
-		request.unbind(entity, model, "code", "creationMoment","title","description","budget");
+		request.unbind(entity, model, "code", "creationMoment","theme","summary","quota");
 		
 	}
 	

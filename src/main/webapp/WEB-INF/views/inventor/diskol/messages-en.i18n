@@ -1,0 +1,27 @@
+inventor.diskol.list.label.code = Code
+inventor.diskol.list.label.creationMoment = Creation Moment
+inventor.diskol.list.label.theme = theme
+inventor.diskol.list.label.summary = summary
+inventor.diskol.list.label.quota = quota
+
+inventor.diskol.form.label.code = Code
+inventor.diskol.form.label.creationMoment = Creation Moment
+inventor.diskol.form.label.theme = Theme
+inventor.diskol.form.label.summary = Summary
+inventor.diskol.form.label.startDate = Start Date
+inventor.diskol.form.label.finishDate = Finish Date
+inventor.diskol.form.label.quota = Quota
+inventor.diskol.form.label.additionalInfo = Additional Info
+
+inventor.diskol.form.button.create = Create
+inventor.diskol.list.button.create = Create
+
+inventor.diskol.form.error.duplicated_code = Duplicated Code
+inventor.diskol.form.error.invalid_date = Invalid Date Code
+inventor.diskol.form.error.start_date = Invalid Start Date (at least one month ahead)
+inventor.diskol.form.error.no_accepted_currency = Not Accepted Currency
+inventor.artifact.form.error.negative = Negative Amount is not Valid
+inventor.diskol.form.error.finishDate = Invalid Finish Date (one week long after Start Date)
+
+inventor.diskol.form.button.update = Update
+inventor.diskol.form.button.delete = Delete

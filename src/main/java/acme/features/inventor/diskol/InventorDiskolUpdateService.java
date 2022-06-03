@@ -1,4 +1,4 @@
-package acme.features.inventor.chimpum;
+package acme.features.inventor.diskol;
 
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
@@ -18,10 +18,10 @@ import acme.framework.services.AbstractUpdateService;
 import acme.roles.Inventor;
 
 @Service
-public class InventorChimpumUpdateService implements AbstractUpdateService<Inventor, Diskol>{
+public class InventorDiskolUpdateService implements AbstractUpdateService<Inventor, Diskol>{
 
 	@Autowired
-	protected InventorChimpumRepository repository;
+	protected InventorDiskolRepository repository;
 	
 	@Override
 	public boolean authorise(final Request<Diskol> request) {
@@ -30,7 +30,7 @@ public class InventorChimpumUpdateService implements AbstractUpdateService<Inven
 		Diskol diskol;
 		
 		id = request.getModel().getInteger("id");
-		diskol = this.repository.findChimpumById(id);
+		diskol = this.repository.findDiskolById(id);
 		result = diskol!=null && request.isPrincipal(diskol.getArtifact().getInventor()) ;
 		
 		return result;
@@ -38,13 +38,13 @@ public class InventorChimpumUpdateService implements AbstractUpdateService<Inven
 
 	@Override
 	public void bind(final Request<Diskol> request, final Diskol entity, final Errors errors) {
-		request.bind(entity, errors, "code","title","description","startDate","finishDate","budget","link");
+		request.bind(entity, errors, "code","theme","summary","startDate","finishDate","quota","additionalInfo");
 		
 	}
 
 	@Override
 	public void unbind(final Request<Diskol> request, final Diskol entity, final Model model) {
-		request.unbind(entity, model, "code","creationMoment","title","description","startDate","finishDate","budget","link");
+		request.unbind(entity, model, "code","creationMoment","theme","summary","startDate","finishDate","quota","additionalInfo");
 		
 	}
 
@@ -53,7 +53,7 @@ public class InventorChimpumUpdateService implements AbstractUpdateService<Inven
 		Diskol result;
 		int id;
 		id = request.getModel().getInteger("id");
-		result = this.repository.findChimpumById(id);
+		result = this.repository.findDiskolById(id);
 		return result;
 	}
 
@@ -61,17 +61,19 @@ public class InventorChimpumUpdateService implements AbstractUpdateService<Inven
 	public void validate(final Request<Diskol> request, final Diskol entity, final Errors errors) {
 		if(!errors.hasErrors("code")) {
 			
-			final Diskol diskol = this.repository.findChimpumByCode(entity.getCode());
-			errors.state(request, diskol==null || diskol.getId() == entity.getId(), "code", "inventor.chimpum.form.error.duplicated_code");
+			final Diskol diskol = this.repository.findDiskolByCode(entity.getCode());
+			errors.state(request, diskol==null || diskol.getId() == entity.getId(), "code", "inventor.diskol.form.error.duplicated_code");
 			final String code = entity.getCode();
 			
 			final Date date = entity.getCreationMoment();
-			final SimpleDateFormat formatter = new SimpleDateFormat("yy/MM/dd");
+			final SimpleDateFormat formatter = new SimpleDateFormat("yy:MMdd");
 			final String dateFormated = formatter.format(date);			
 			
-			final String dateToFormat = code.split("-")[1];
+			final String dateToFormatOne = code.split(":")[1];
+			final String dateToFormatTwo = code.split(":")[2];
+			final String dateToFormat = dateToFormatOne+":"+dateToFormatTwo;
 			
-			errors.state(request, dateFormated.equals(dateToFormat),"code", "inventor.chimpum.form.error.invalid_date");
+			errors.state(request, dateFormated.equals(dateToFormat),"code", "inventor.diskol.form.error.invalid_date");
 		}
 		
 		if(!errors.hasErrors("startDate")) {
@@ -82,10 +84,10 @@ public class InventorChimpumUpdateService implements AbstractUpdateService<Inven
 			calendar.add(Calendar.MONTH, 1);
 			
 			minimunDate = calendar.getTime();
-			errors.state(request, entity.getStartDate().after(minimunDate), "startDate", "inventor.chimpum.form.error.start_date");
+			errors.state(request, entity.getStartDate().after(minimunDate), "startDate", "inventor.diskol.form.error.start_date");
 		}
 		
-		if(!errors.hasErrors("budget")) {
+		if(!errors.hasErrors("quota")) {
 			final String entityCurrency;
 			final Double amount;
 			final String[] acceptedCurrencies;
@@ -93,11 +95,11 @@ public class InventorChimpumUpdateService implements AbstractUpdateService<Inven
 			
 			entityCurrency = entity.getQuota().getCurrency();
 			amount = entity.getQuota().getAmount();
-			errors.state(request, amount > 0, "budget", "inventor.artifact.form.error.negative");
+			errors.state(request, amount > 0, "quota", "inventor.artifact.form.error.negative");
 			acceptedCurrencies=this.repository.findAllAcceptedCurrencies().split(",");
 			
 			currencies = Arrays.asList(acceptedCurrencies);
-			errors.state(request, currencies.contains(entityCurrency) , "budget", "inventor.chimpum.form.error.no_accepted_currency");
+			errors.state(request, currencies.contains(entityCurrency) , "quota", "inventor.diskol.form.error.no_accepted_currency");
 		}
 		
 		if(!errors.hasErrors("finishDate")) {
@@ -110,7 +112,7 @@ public class InventorChimpumUpdateService implements AbstractUpdateService<Inven
 			calendar.add(Calendar.WEEK_OF_YEAR, 1);
 			minimunDate = calendar.getTime();
 			
-			errors.state(request, entity.getFinishDate().equals(minimunDate), "finishDate", "inventor.chimpum.form.error.finishDate");
+			errors.state(request, entity.getFinishDate().equals(minimunDate), "finishDate", "inventor.diskol.form.error.finishDate");
 		}
 		
 	}

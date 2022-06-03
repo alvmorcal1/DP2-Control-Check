@@ -1,4 +1,4 @@
-package acme.features.inventor.chimpum;
+package acme.features.inventor.diskol;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,10 +11,10 @@ import acme.framework.services.AbstractDeleteService;
 import acme.roles.Inventor;
 
 @Service
-public class InventorChimpumDeleteService implements AbstractDeleteService<Inventor, Diskol>{
+public class InventorDiskolDeleteService implements AbstractDeleteService<Inventor, Diskol>{
 
 	@Autowired
-	protected InventorChimpumRepository repository;
+	protected InventorDiskolRepository repository;
 	
 	@Override
 	public boolean authorise(final Request<Diskol> request) {
@@ -23,7 +23,7 @@ public class InventorChimpumDeleteService implements AbstractDeleteService<Inven
 		Diskol diskol;
 		
 		id = request.getModel().getInteger("id");
-		diskol = this.repository.findChimpumById(id);
+		diskol = this.repository.findDiskolById(id);
 		result = diskol!=null && request.isPrincipal(diskol.getArtifact().getInventor());
 		
 		return result;
@@ -31,13 +31,13 @@ public class InventorChimpumDeleteService implements AbstractDeleteService<Inven
 
 	@Override
 	public void bind(final Request<Diskol> request, final Diskol entity, final Errors errors) {
-		request.bind(entity, errors, "code","title","description","startDate","finishDate","budget","link");
+		request.bind(entity, errors, "code","theme","summary","startDate","finishDate","quota","additionalInfo");
 		
 	}
 
 	@Override
 	public void unbind(final Request<Diskol> request, final Diskol entity, final Model model) {
-		request.unbind(entity, model, "code","creationMoment","title","description","startDate","finishDate","budget","link");
+		request.unbind(entity, model, "code","creationMoment","theme","summary","startDate","finishDate","quota","additionalInfo");
 		
 	}
 
@@ -46,7 +46,7 @@ public class InventorChimpumDeleteService implements AbstractDeleteService<Inven
 		Diskol result;
 		int id;
 		id = request.getModel().getInteger("id");
-		result = this.repository.findChimpumById(id);
+		result = this.repository.findDiskolById(id);
 		return result;
 	}
 
