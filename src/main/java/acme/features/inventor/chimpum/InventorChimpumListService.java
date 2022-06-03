@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 
 import acme.entities.Artifact;
 import acme.entities.ArtifactType;
-import acme.entities.Chimpum;
+import acme.entities.Diskol;
 import acme.features.inventor.artifact.InventorArtifactRepository;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Request;
@@ -16,7 +16,7 @@ import acme.framework.services.AbstractListService;
 import acme.roles.Inventor;
 
 @Service
-public class InventorChimpumListService implements AbstractListService<Inventor, Chimpum>{
+public class InventorChimpumListService implements AbstractListService<Inventor, Diskol>{
 
 	@Autowired
 	protected InventorChimpumRepository repository;
@@ -25,7 +25,7 @@ public class InventorChimpumListService implements AbstractListService<Inventor,
 	protected InventorArtifactRepository artifactRepository;
 	
 	@Override
-	public boolean authorise(final Request<Chimpum> request) {
+	public boolean authorise(final Request<Diskol> request) {
 		
 		final boolean result;
 		final int masterId = request.getModel().getInteger("masterId");
@@ -39,19 +39,19 @@ public class InventorChimpumListService implements AbstractListService<Inventor,
 	}
 
 	@Override
-	public Collection<Chimpum> findMany(final Request<Chimpum> request) {
+	public Collection<Diskol> findMany(final Request<Diskol> request) {
 		final int masterId = request.getModel().getInteger("masterId");
 		return this.repository.findAllChimpumByArtifactId(masterId);
 	}
 
 	@Override
-	public void unbind(final Request<Chimpum> request, final Chimpum entity, final Model model) {
+	public void unbind(final Request<Diskol> request, final Diskol entity, final Model model) {
 		request.unbind(entity, model, "code", "creationMoment","title","description","budget");
 		
 	}
 	
 	@Override
-	public void unbind(final Request<Chimpum> request, final Collection<Chimpum> entities, final Model model) {
+	public void unbind(final Request<Diskol> request, final Collection<Diskol> entities, final Model model) {
 		assert request != null;
 		assert !CollectionHelper.someNull(entities);
 		assert model != null;

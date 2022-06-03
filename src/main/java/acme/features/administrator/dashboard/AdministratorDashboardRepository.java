@@ -32,10 +32,10 @@ public interface AdministratorDashboardRepository extends AbstractRepository {
 
 	//CONTROL CHECK ------------------------------------
 	
-	@Query("select count(c) from Chimpum c")
-	int totalNumberOfChimpums();
+	@Query("select count(c) from Diskol c")
+	int totalNumberOfDiskols();
 
-	@Query("select avg(c.budget.amount), stddev(c.budget.amount), min(c.budget.amount), max(c.budget.amount), c.budget.currency from Chimpum c group by c.budget.currency")
-	List<Object[]> statsOfChimpum();
+	@Query("select avg(d.quota.amount), stddev(d.quota.amount), min(d.quota.amount), max(d.quota.amount), d.quota.currency from Diskol d group by d.quota.currency")
+	List<Object[]> statsOfDiskol();
 
 }

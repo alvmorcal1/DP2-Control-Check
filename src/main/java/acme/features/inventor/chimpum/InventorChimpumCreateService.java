@@ -13,7 +13,7 @@ import org.springframework.stereotype.Service;
 
 import acme.entities.Artifact;
 import acme.entities.ArtifactType;
-import acme.entities.Chimpum;
+import acme.entities.Diskol;
 import acme.features.inventor.artifact.InventorArtifactRepository;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Errors;
@@ -22,7 +22,7 @@ import acme.framework.services.AbstractCreateService;
 import acme.roles.Inventor;
 
 @Service
-public class InventorChimpumCreateService implements AbstractCreateService<Inventor, Chimpum>{
+public class InventorChimpumCreateService implements AbstractCreateService<Inventor, Diskol>{
 
 	@Autowired
 	protected InventorChimpumRepository repository;
@@ -31,7 +31,7 @@ public class InventorChimpumCreateService implements AbstractCreateService<Inven
 	protected InventorArtifactRepository artifactRepository;
 	
 	@Override
-	public boolean authorise(final Request<Chimpum> request) {
+	public boolean authorise(final Request<Diskol> request) {
 		final boolean result;
 		final int masterId = request.getModel().getInteger("masterId");
 		
@@ -44,34 +44,34 @@ public class InventorChimpumCreateService implements AbstractCreateService<Inven
 	}
 
 	@Override
-	public void bind(final Request<Chimpum> request, final Chimpum entity, final Errors errors) {
+	public void bind(final Request<Diskol> request, final Diskol entity, final Errors errors) {
 		request.bind(entity, errors, "code","title","description","startDate","finishDate","budget","link");
 		
 	}
 
 	@Override
-	public void unbind(final Request<Chimpum> request, final Chimpum entity, final Model model) {
+	public void unbind(final Request<Diskol> request, final Diskol entity, final Model model) {
 		request.unbind(entity, model, "code","title","description","startDate","finishDate","budget","link");
 		model.setAttribute("masterId", request.getModel().getAttribute("masterId"));
 	}
 
 	@Override
-	public Chimpum instantiate(final Request<Chimpum> request) {
-		final Chimpum chimpum = new Chimpum();
+	public Diskol instantiate(final Request<Diskol> request) {
+		final Diskol diskol = new Diskol();
 		
 		final int masterId = request.getModel().getInteger("masterId");
-		chimpum.setArtifact(this.artifactRepository.findArtifactById(masterId));
+		diskol.setArtifact(this.artifactRepository.findArtifactById(masterId));
 		
-		chimpum.setCreationMoment(new Date());
-		return chimpum;
+		diskol.setCreationMoment(new Date());
+		return diskol;
 	}
 
 	@Override
-	public void validate(final Request<Chimpum> request, final Chimpum entity, final Errors errors) {
+	public void validate(final Request<Diskol> request, final Diskol entity, final Errors errors) {
 		if(!errors.hasErrors("code")) {
 			
-			final Chimpum chimpum = this.repository.findChimpumByCode(entity.getCode());
-			errors.state(request, chimpum==null || chimpum.getId() == entity.getId(), "code", "inventor.chimpum.form.error.duplicated_code");
+			final Diskol diskol = this.repository.findChimpumByCode(entity.getCode());
+			errors.state(request, diskol==null || diskol.getId() == entity.getId(), "code", "inventor.chimpum.form.error.duplicated_code");
 			final String code = entity.getCode();
 			
 			final LocalDate dateObj = LocalDate.now();
@@ -97,8 +97,8 @@ public class InventorChimpumCreateService implements AbstractCreateService<Inven
 			final String[] acceptedCurrencies;
 			final List<String> currencies;
 			
-			entityCurrency = entity.getBudget().getCurrency();
-			amount = entity.getBudget().getAmount();
+			entityCurrency = entity.getQuota().getCurrency();
+			amount = entity.getQuota().getAmount();
 			errors.state(request, amount > 0, "budget", "inventor.artifact.form.error.negative");
 			acceptedCurrencies=this.repository.findAllAcceptedCurrencies().split(",");
 			
@@ -122,7 +122,7 @@ public class InventorChimpumCreateService implements AbstractCreateService<Inven
 	}
 
 	@Override
-	public void create(final Request<Chimpum> request, final Chimpum entity) {
+	public void create(final Request<Diskol> request, final Diskol entity) {
 		this.repository.save(entity);
 		
 	}

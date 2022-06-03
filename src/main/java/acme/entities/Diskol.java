@@ -23,11 +23,11 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-public class Chimpum extends AbstractEntity{
+public class Diskol extends AbstractEntity{
 
 	protected static final long serialVersionUID = 1L;
 	
-	@Pattern(regexp = "[A-Z]{3}-([0-9]{2})/(0[1-9]|1[0-2])/(0[1-9]|[12][0-9]|3[01])")
+	@Pattern(regexp = "^\\w{2,4}:([0-9]{2}):(0[1-9]|1[0-2])(0[1-9]|[12][0-9]|3[01])$")
 	@NotBlank
 	protected String code;
 	
@@ -38,11 +38,11 @@ public class Chimpum extends AbstractEntity{
 	
 	@Length(max=100)
 	@NotBlank
-	protected String title;
+	protected String theme;
 	
 	@Length(max=255)
 	@NotBlank
-	protected String description;
+	protected String summary;
 	
 	@Temporal(TemporalType.TIMESTAMP)
 	@NotNull
@@ -54,14 +54,14 @@ public class Chimpum extends AbstractEntity{
 	
 	@Valid
 	@NotNull
-	protected Money budget;
+	protected Money quota;
 	
 	@URL
-	protected String link;
+	protected String additionalInfo;
 	
 	//Relacion
 	
 	@Valid
-	@ManyToOne(optional = true)
+	@ManyToOne(optional = false)
 	protected Artifact artifact;
 }

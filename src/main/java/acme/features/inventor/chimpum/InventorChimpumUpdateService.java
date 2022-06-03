@@ -10,7 +10,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entities.Chimpum;
+import acme.entities.Diskol;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Errors;
 import acme.framework.controllers.Request;
@@ -18,39 +18,39 @@ import acme.framework.services.AbstractUpdateService;
 import acme.roles.Inventor;
 
 @Service
-public class InventorChimpumUpdateService implements AbstractUpdateService<Inventor, Chimpum>{
+public class InventorChimpumUpdateService implements AbstractUpdateService<Inventor, Diskol>{
 
 	@Autowired
 	protected InventorChimpumRepository repository;
 	
 	@Override
-	public boolean authorise(final Request<Chimpum> request) {
+	public boolean authorise(final Request<Diskol> request) {
 		boolean result;
 		int id;
-		Chimpum chimpum;
+		Diskol diskol;
 		
 		id = request.getModel().getInteger("id");
-		chimpum = this.repository.findChimpumById(id);
-		result = chimpum!=null && request.isPrincipal(chimpum.getArtifact().getInventor()) ;
+		diskol = this.repository.findChimpumById(id);
+		result = diskol!=null && request.isPrincipal(diskol.getArtifact().getInventor()) ;
 		
 		return result;
 	}
 
 	@Override
-	public void bind(final Request<Chimpum> request, final Chimpum entity, final Errors errors) {
+	public void bind(final Request<Diskol> request, final Diskol entity, final Errors errors) {
 		request.bind(entity, errors, "code","title","description","startDate","finishDate","budget","link");
 		
 	}
 
 	@Override
-	public void unbind(final Request<Chimpum> request, final Chimpum entity, final Model model) {
+	public void unbind(final Request<Diskol> request, final Diskol entity, final Model model) {
 		request.unbind(entity, model, "code","creationMoment","title","description","startDate","finishDate","budget","link");
 		
 	}
 
 	@Override
-	public Chimpum findOne(final Request<Chimpum> request) {
-		Chimpum result;
+	public Diskol findOne(final Request<Diskol> request) {
+		Diskol result;
 		int id;
 		id = request.getModel().getInteger("id");
 		result = this.repository.findChimpumById(id);
@@ -58,11 +58,11 @@ public class InventorChimpumUpdateService implements AbstractUpdateService<Inven
 	}
 
 	@Override
-	public void validate(final Request<Chimpum> request, final Chimpum entity, final Errors errors) {
+	public void validate(final Request<Diskol> request, final Diskol entity, final Errors errors) {
 		if(!errors.hasErrors("code")) {
 			
-			final Chimpum chimpum = this.repository.findChimpumByCode(entity.getCode());
-			errors.state(request, chimpum==null || chimpum.getId() == entity.getId(), "code", "inventor.chimpum.form.error.duplicated_code");
+			final Diskol diskol = this.repository.findChimpumByCode(entity.getCode());
+			errors.state(request, diskol==null || diskol.getId() == entity.getId(), "code", "inventor.chimpum.form.error.duplicated_code");
 			final String code = entity.getCode();
 			
 			final Date date = entity.getCreationMoment();
@@ -91,8 +91,8 @@ public class InventorChimpumUpdateService implements AbstractUpdateService<Inven
 			final String[] acceptedCurrencies;
 			final List<String> currencies;
 			
-			entityCurrency = entity.getBudget().getCurrency();
-			amount = entity.getBudget().getAmount();
+			entityCurrency = entity.getQuota().getCurrency();
+			amount = entity.getQuota().getAmount();
 			errors.state(request, amount > 0, "budget", "inventor.artifact.form.error.negative");
 			acceptedCurrencies=this.repository.findAllAcceptedCurrencies().split(",");
 			
@@ -116,7 +116,7 @@ public class InventorChimpumUpdateService implements AbstractUpdateService<Inven
 	}
 
 	@Override
-	public void update(final Request<Chimpum> request, final Chimpum entity) {
+	public void update(final Request<Diskol> request, final Diskol entity) {
 		this.repository.save(entity);
 		
 	}

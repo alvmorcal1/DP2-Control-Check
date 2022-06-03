@@ -10,8 +10,8 @@
 <%--CONTROL CHECK--%>
 
 <h3>
-	<acme:message code="administrator.dashboard.form.label.ratioOfChimpum"/>
-	<acme:print value="${ratioOfChimpum}"/>
+	<acme:message code="administrator.dashboard.form.label.ratioOfDiskol"/>
+	<acme:print value="${ratioOfDiskol}"/>
 </h3>
 
 <table class="table table-sm">
@@ -20,16 +20,16 @@
 	<tr>
 		<th scope="row">
 			<h4>
-				<acme:message code="administrator.dashboard.form.label.averageBudgetOfChimpum"/>
+				<acme:message code="administrator.dashboard.form.label.averageBudgetOfDiskol"/>
 			</h4>
-			<table class="table table-sm" id="id-averageBudgetOfChimpum">
+			<table class="table table-sm" id="id-averageBudgetOfDiskol">
 				<caption>
-					<acme:message code="administrator.dashboard.form.label.averageBudgetOfChimpum"/>
+					<acme:message code="administrator.dashboard.form.label.averageBudgetOfDiskol"/>
 				</caption>
-				<jstl:forEach items="${currencyChimpum}" var="currencyChimpum">
+				<jstl:forEach items="${currencyDiskol}" var="currencyDiskol">
 					<tr>
-						<th scope="row"><acme:print value="${currencyChimpum}"/></th>
-						<jstl:set value="${averageBudgetOfChimpum.entrySet().stream().filter(x->x.getKey().equals(currencyChimpum)).iterator()}" var="entrySet"/>
+						<th scope="row"><acme:print value="${currencyDiskol}"/></th>
+						<jstl:set value="${averageBudgetOfDiskol.entrySet().stream().filter(x->x.getKey().equals(currencyDiskol)).iterator()}" var="entrySet"/>
 						<jstl:if test="${entrySet.hasNext()}">
 							<jstl:forEach items="${entrySet}" var="entry">
 								<th scope="row"><acme:print value="${entry.getValue()}" /></th>
@@ -48,16 +48,16 @@
 	<tr>
 		<th scope="row">
 			<h4>
-				<acme:message code="administrator.dashboard.form.label.deviationBudgetOfChimpum"/>
+				<acme:message code="administrator.dashboard.form.label.deviationBudgetOfDiskol"/>
 			</h4>
-			<table class="table table-sm" id="id-deviationBudgetOfChimpum">
+			<table class="table table-sm" id="id-deviationBudgetOfDiskol">
 				<caption>
-					<acme:message code="administrator.dashboard.form.label.deviationBudgetOfChimpum"/>
+					<acme:message code="administrator.dashboard.form.label.deviationBudgetOfDiskol"/>
 				</caption>
-				<jstl:forEach items="${currencyChimpum}" var="currencyChimpum">
+				<jstl:forEach items="${currencyDiskol}" var="currencyDiskol">
 					<tr>
-						<th scope="row"><acme:print value="${currencyChimpum}"/></th>
-						<jstl:set value="${deviationBudgetOfChimpum.entrySet().stream().filter(x->x.getKey().equals(currencyChimpum)).iterator()}" var="entrySet"/>
+						<th scope="row"><acme:print value="${currencyDiskol}"/></th>
+						<jstl:set value="${deviationBudgetOfDiskol.entrySet().stream().filter(x->x.getKey().equals(currencyDiskol)).iterator()}" var="entrySet"/>
 						<jstl:if test="${entrySet.hasNext()}">
 							<jstl:forEach items="${entrySet}" var="entry">
 								<th scope="row"><acme:print value="${entry.getValue()}"/></th>
@@ -76,17 +76,17 @@
 	<tr>
 		<th scope="row">
 			<h4>
-				<acme:message code="administrator.dashboard.form.label.minimumBudgetOfChimpum"/>
+				<acme:message code="administrator.dashboard.form.label.minimumBudgetOfDiskol"/>
 			</h4>
-			<table class="table table-sm" id="id-minimumBudgetOfChimpum">
+			<table class="table table-sm" id="id-minimumBudgetOfDiskol">
 				<caption>
 					<acme:message
-						code="administrator.dashboard.form.label.minimumBudgetOfChimpum"/>
+						code="administrator.dashboard.form.label.minimumBudgetOfDiskol"/>
 				</caption>
-				<jstl:forEach items="${currencyChimpum}" var="currencyChimpum">
+				<jstl:forEach items="${currencyDiskol}" var="currencyDiskol">
 					<tr>
-						<th scope="row"><acme:print value="${currencyChimpum}"/></th>
-						<jstl:set value="${minimumBudgetOfChimpum.entrySet().stream().filter(x->x.getKey().equals(currencyChimpum)).iterator()}" var="entrySet"/>
+						<th scope="row"><acme:print value="${currencyDiskol}"/></th>
+						<jstl:set value="${minimumBudgetOfDiskol.entrySet().stream().filter(x->x.getKey().equals(currencyDiskol)).iterator()}" var="entrySet"/>
 						<jstl:if test="${entrySet.hasNext()}">
 							<jstl:forEach items="${entrySet}" var="entry">
 								<th scope="row"><acme:print value="${entry.getValue()}"/></th>
@@ -105,16 +105,16 @@
 	<tr>
 		<th scope="row">
 			<h4>
-				<acme:message code="administrator.dashboard.form.label.maximumBudgetOfChimpum"/>
+				<acme:message code="administrator.dashboard.form.label.maximumBudgetOfDiskol"/>
 			</h4>
-			<table class="table table-sm" id="id-maximumBudgetOfChimpum">
+			<table class="table table-sm" id="id-maximumBudgetOfDiskol">
 				<caption>
-					<acme:message code="administrator.dashboard.form.label.maximumBudgetOfChimpum"/>
+					<acme:message code="administrator.dashboard.form.label.maximumBudgetOfDiskol"/>
 				</caption>
-				<jstl:forEach items="${currencyChimpum}" var="currencyChimpum">
+				<jstl:forEach items="${currencyDiskol}" var="currencyDiskol">
 					<tr>
-						<th scope="row"><acme:print value="${currencyChimpum}"/></th>
-						<jstl:set value="${maximumBudgetOfChimpum.entrySet().stream().filter(x->x.getKey().equals(currencyChimpum)).iterator()}" var="entrySet"/>
+						<th scope="row"><acme:print value="${currencyDiskol}"/></th>
+						<jstl:set value="${maximumBudgetOfDiskol.entrySet().stream().filter(x->x.getKey().equals(currencyDiskol)).iterator()}" var="entrySet"/>
 						<jstl:if test="${entrySet.hasNext()}">
 							<jstl:forEach items="${entrySet}" var="entry">
 								<th scope="row"><acme:print value="${entry.getValue()}"/></th>
